@@ -1,11 +1,11 @@
 import { Inngest } from "inngest";
-import User from "../models/user";
+import User from "../models/User.ts";
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "pingup-app" });
 
 //Inngest function to save user data to database
 const syncUserCreation = inngest.createFunction(
-    { id: 'sync-user-from-clerk' },
+    { id: 'sync-user-created-from-clerk' },
     { event: 'clerk/user.created' },
     async ({ event }) => {
         const { id, first_name, last_name, email_addresses, image_url } = event.data
@@ -32,7 +32,7 @@ const syncUserCreation = inngest.createFunction(
 
 // Inngest function to update user data in database
 const syncUserUpdation = inngest.createFunction(
-    { id: 'sync-user-from-clerk' },
+    { id: 'sync-user-updated-from-clerk' },
     { event: 'clerk/user.updated' },
     async ({ event }) => {
         const { id, first_name, last_name, email_addresses, image_url } = event.data
@@ -49,7 +49,7 @@ const syncUserUpdation = inngest.createFunction(
 
 // Inngest function to delete user data from database
 const syncUserDeletion = inngest.createFunction(
-    { id: 'sync-user-with-clerk' },
+    { id: 'sync-user-deleted-from-clerk' },
     { event: 'clerk/user.deleted' },
     async ({ event }) => {
         const { id } = event.data

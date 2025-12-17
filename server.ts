@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./configs/db.ts";
 import { serve } from "inngest/express";
-import { inngest, functions } from "./inngest";
+import { inngest, functions } from "./inngest/index.ts";
 
 // Load environment variables
 dotenv.config();
