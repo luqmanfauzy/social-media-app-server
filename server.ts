@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./configs/db.ts";
+import { serve } from "inngest/express";
+import { inngest, functions } from "./inngest";
 
 // Load environment variables
 dotenv.config();
@@ -20,6 +22,8 @@ app.use(cors());
 app.get("/", (req: express.Request, res: express.Response) => {
   res.send("Hello World!");
 });
+
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 // Start server
 const PORT = process.env.PORT || 4000;
