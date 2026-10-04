@@ -1,7 +1,7 @@
 import { Inngest } from "inngest";
 import User from "../models/User.ts";
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "pingup-app" });
+export const inngest = new Inngest({ id: "gagameet-app" });
 
 //Inngest function to save user data to database
 const syncUserCreation = inngest.createFunction(
@@ -62,5 +62,5 @@ const syncUserDeletion = inngest.createFunction(
 export const functions = [
     syncUserCreation,
     syncUserUpdation,
-    syncUserDeletion  
+    syncUserDeletion
 ];

@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true },
     full_name: { type: String, required: true },
     username: { type: String, unique: true },
-    bio: { type: String, default: "Hi there!, i am using Ping Up." },
+    bio: { type: String, default: "Hi there!, i am using Gagameet." },
     profile_picture: { type: String, default: "" },
     cover_photo: { type: String, default: "" },
     location: { type: String, default: "" },
